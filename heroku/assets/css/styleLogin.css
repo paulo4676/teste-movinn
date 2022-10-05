@@ -52,6 +52,40 @@ body {
   }
 }
 
+.select-css {
+  margin-left:8px;
+  margin-bottom: 15px;
+  width: 275px;
+	font-size: 16px;
+  font-weight:bold;
+	padding: .6em 1.4em .5em .8em;
+	border: none;
+	border-radius: .5em;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+  color: #BABECC;
+  background-color: #EBECF0;
+  text-shadow: 2px 2px 2px #FFF;
+	/* background-color: #fff; */
+  box-shadow: inset -2px -2px 5px white, inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+.select-css:focus {
+  box-shadow: inset -2px -2px 5px white, inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+	color: #222;
+	outline: none;
+  border:none;
+  color: #BABECC;
+  text-shadow: 2px 2px 2px #FFF;
+}
+.select-css option {
+	font-weight:normal;
+  font-weight: bold;
+  color: #b4bde0;
+  text-shadow: 2px 2px 2px #FFF;
+}
+
+
 .container {
   display: flex;
   justify-content: center;
