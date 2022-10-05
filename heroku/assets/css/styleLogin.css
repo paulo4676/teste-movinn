@@ -70,6 +70,7 @@ body {
   box-shadow: inset -2px -2px 5px white, inset 2px 2px 5px rgba(0, 0, 0, 0.1);
 
 }
+
 .select-css:focus {
   box-shadow: inset -2px -2px 5px white, inset 2px 2px 5px rgba(0, 0, 0, 0.1);
 	color: #222;
@@ -78,6 +79,7 @@ body {
   color: #BABECC;
   text-shadow: 2px 2px 2px #FFF;
 }
+
 .select-css option {
 	font-weight:normal;
   font-weight: bold;
