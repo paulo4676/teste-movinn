@@ -1,15 +1,15 @@
-function changeHome(p1, p2) {
+function changeHome() {
     console.log("Home");
     var teste = $("#container");
     alert(teste);
 }
 
-function changeSaque(p1, p2) {
+function changeSaque() {
 
 }
    
 
-function changeTransferencia(p1, p2) {
+function changeTransferencia() {
     
 }
 
