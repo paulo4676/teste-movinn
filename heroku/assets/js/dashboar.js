@@ -1,4 +1,3 @@
-$("#Home").click(function(){
+function changeHome() {
     alert("teste");
-    $("#divPrincipal").append("<h1>Título</h1>");
-});
+}
