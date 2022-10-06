@@ -1,6 +1,6 @@
 
 $(document).on("click",".appDetails", function () {
-    var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
+    var clickedBtnID = $(this).attr('id');
     console.log(clickedBtnID)
 });
 
