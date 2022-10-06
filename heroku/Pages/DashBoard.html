@@ -4,8 +4,9 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../assets/css/styleDashboard.css">
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+        <script src="../assets/js/dashboar.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="app">
@@ -49,19 +50,19 @@
             <div class="app-body">
                 <div class="app-body-navigation">
                     <nav class="navigation">
-                        <a id='Home' onclick="changeHome()" href="#">
+                        <a id='Home' href="#">
                             <i class="ph-browsers"></i>
                             <span>Home</span>
                         </a>
-                        <a onclick="changeSaque()"  href="#">
+                        <a id='Saque' href="#">
                             <i class="ph-check-square"></i>
                             <span>Saque</span>
                         </a>
-                        <a onclick="changeTransferencia()"  href="#">
+                        <a id='Transferencia' href="#">
                             <i class="ph-swap"></i>
                             <span>Transferencia</span>
                         </a>
-                        <a onclick="changeDeposito()"  href="#">
+                        <a id="Deposito"  href="#">
                             <i class="ph-file-text"></i>
                             <span>Deposito</span>
                         </a>
@@ -165,6 +166,5 @@
                 </div>
             </div>
         </div>
-        <script src="../assets/js/dashboar.js"></script>
     </body>
 </html>
