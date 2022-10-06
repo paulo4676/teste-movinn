@@ -1,6 +1,6 @@
 function changeHome(p1, p2) {
-
-    var teste = $( "#container" );
+    console.log("Home")
+    var teste = $("#container");
     alert(teste);
 }
 
