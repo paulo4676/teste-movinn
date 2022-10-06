@@ -1,5 +1,5 @@
 function changeHome(p1, p2) {
-    console.log("Home")
+    console.log("Home");
     var teste = $("#container");
     alert(teste);
 }
