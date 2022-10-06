@@ -1,11 +1,7 @@
 
-$(document).on('click', function(event){
+$(document).on('click', function(){
     console.log("jquery ok");
-    console.log(event.target.id);
+    var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
+    console.log(clickedBtnID);
 });
 
-$(document).ready(function(){
-    $('pages').click(function(event){
-        alert(event.target.id);
-    });
-});
