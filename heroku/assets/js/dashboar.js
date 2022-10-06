@@ -3,7 +3,6 @@ function teste(){
     console.log("js ok");
 }
 
-$(window).load(function() {
+$(window).on('load', function(){
     console.log("jquery ok");
-})
-
+});
