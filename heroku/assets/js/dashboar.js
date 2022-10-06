@@ -1,7 +1,11 @@
+
+$(document).on("click",".appDetails", function () {
+    var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
+    console.log(clickedBtnID)
+});
+
+
 function changeHome() {
-    console.log("Home");
-    var teste = $("#container");
-    alert(teste);
 }
 
 function changeSaque() {
