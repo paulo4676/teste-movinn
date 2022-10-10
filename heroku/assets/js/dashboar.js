@@ -166,6 +166,7 @@ function saque()
                     showConfirmButton: false,
                     timer: 1500
                 })
+                $("#valor").val("")
                 changeacouunt()
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -204,6 +205,7 @@ function deposito()
                 showConfirmButton: false,
                 timer: 1500
             })
+            $("#valor").val("")
             changeacouunt()
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -237,6 +239,8 @@ function transferencia()
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    $("#numero_conta_transfer").val("") 
+                    $("#valor").val("")
                     changeacouunt()
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
