@@ -4,11 +4,13 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../assets/css/styleDashboard.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script  src="https://code.jquery.com/jquery-3.6.1.min.js"  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="  crossorigin="anonymous"></script>
         <script src="../assets/js/dashboar.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     </head>
     <body>
+        <span style="display: none" id="conta_id"></span>
         <div class="app">
             <header class="app-header">
                 <div class="app-header-logo">
@@ -22,22 +24,18 @@
                         </h1>
                     </div>
                 </div>
-                
                 <div class="app-header-navigation">
                 </div>
-
                 <div class="app-header-actions">
-                    <button class="user-profile">
-                        <span>Matheo Peterson</span>
-                        <span>
-                            <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
-                        </span>
-                    </button>
+                    <div class="service-section-header">
+                        <span>conta :</span>
+                        <div class="search-field">
+                            <input id="account" min="1" onchange="changeacouunt()" type="number">
+                        </div>
+                    </div>
                     <div class="app-header-actions-buttons">
-                        <span>$00,00</span>
-                        <button class="icon-button large">
-                            <i class="ph-bell"></i>
-                        </button>
+                        <span >Saldo: B$</span>
+                        <span id="saldo_conta"> 0</span>
                     </div>
                 </div>
                 <div class="app-header-mobile">
@@ -50,21 +48,17 @@
             <div class="app-body">
                 <div class="app-body-navigation">
                     <nav class="navigation">
-                        <a class="pages">
-                            <i class="ph-browsers"></i>
-                            <span id='Home'>Home</span>
-                        </a>
-                        <a>
+                        <a onclick='change_pages("Saque")'>
                             <i class="ph-check-square"></i>
-                            <span id='Saque'>Saque</span>
+                            <span>Saque</span>
                         </a>
-                        <a>
+                        <a  onclick='change_pages("Transferencia")'>
                             <i class="ph-swap"></i>
-                            <span id='Transferencia'>Transferencia</span>
+                            <span>Transferencia</span>
                         </a>
-                        <a>
+                        <a onclick='change_pages("Deposito")'>
                             <i class="ph-file-text"></i>
-                            <span id="Deposito" >Deposito</span>
+                            <span>Deposito</span>
                         </a>
                     </nav>
                     <footer class="footer">
@@ -74,97 +68,17 @@
                         </div>
                     </footer>
                 </div>
-                <div id="container" class="app-body-main-content">
-                    <section class="service-section">
-                        <h2>Deposito</h2>
-                        <div class="service-section-header">
-                            <div class="search-field">
-                                <input type="number" placeholder="Valor a depositar">
-                            </div>
-                            <button class="flat-button">
-                                depositar
-                            </button>
-                        </div>
-                    </section>
-                </div>
-
-
-                <div class="app-body-sidebar">
-                    <section class="transfer-section">
-                        <div class="transfer-section-header">
-                            <h2>ultimas transações</h2>
-                        </div>
-                        <div class="transfers">
-                            <div class="transfer">
-                                <div class="transfer-logo">
-                                    <img src="https://assets.codepen.io/285131/apple.svg" />
-                                </div>
-                                <dl class="transfer-details">
-                                    <div>
-                                        <dt>Apple Inc.</dt>
-                                        <dd>Apple ID Payment</dd>
-                                    </div>
-                                    <div>
-                                        <dt>4012</dt>
-                                        <dd>Last four digits</dd>
-                                    </div>
-                                    <div>
-                                        <dt>28 Oct. 21</dt>
-                                        <dd>Date payment</dd>
-                                    </div>
-                                </dl>
-                                <div class="transfer-number">
-                                    - $ 550
-                                </div>
-                            </div>
-                            <div class="transfer">
-                                <div class="transfer-logo">
-                                    <img src="https://assets.codepen.io/285131/pinterest.svg" />
-                                </div>
-                                <dl class="transfer-details">
-                                    <div>
-                                        <dt>Pinterest</dt>
-                                        <dd>2 year subscription</dd>
-                                    </div>
-                                    <div>
-                                        <dt>5214</dt>
-                                        <dd>Last four digits</dd>
-                                    </div>
-                                    <div>
-                                        <dt>26 Oct. 21</dt>
-                                        <dd>Date payment</dd>
-                                    </div>
-                                </dl>
-                                <div class="transfer-number">
-                                    - $ 120
-                                </div>
-                            </div>
-                            <div class="transfer">
-                                <div class="transfer-logo">
-                                    <img src="https://assets.codepen.io/285131/warner-bros.svg" />
-                                </div>
-                                <dl class="transfer-details">
-                                    <div>
-                                        <dt>Warner Bros.</dt>
-                                        <dd>Cinema</dd>
-                                    </div>
-                                    <div>
-                                        <dt>2228</dt>
-                                        <dd>Last four digits</dd>
-                                    </div>
-                                    <div>
-                                        <dt>22 Oct. 21</dt>
-                                        <dd>Date payment</dd>
-                                    </div>
-                                </dl>
-                                <div class="transfer-number">
-                                    - $ 70
-                                </div>
-                            </div>
-                        </div>
+                <div class="app-body-main-content">
+                    <section id="container" class="service-section">
                     </section>
                 </div>
             </div>
         </div>
     </body>
 </html>
+
+
+
+
+
+

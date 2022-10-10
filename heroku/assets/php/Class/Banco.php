@@ -1,5 +1,6 @@
 <?php
-class Banco
+require_once("../Class/util.php");
+class Banco extends Util
 {
     function __construct()
     {
@@ -17,31 +18,74 @@ class Banco
         $this->connstring = $conStr;
         $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
     }
-    function queryTable($query)
-    {
-        $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
-        $result = pg_query($query) or die("Query failed: " . pg_last_error());
-        $fetch = pg_fetch_all($result);
-        return $fetch;
+
+   public function Insert($TableName,$parameters){
+    $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
+
+    $res = pg_insert($this->connection, $TableName, $parameters);
+    if ($res) {
+        return true;
     }
-    function queryArray($query)
-    {
-        $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
-        $result = pg_query($query) or die("Query failed: " . pg_last_error());
-        $fetch = pg_fetch_assoc($result);
-        return $fetch;
+    else {
+        return false;
     }
-    public function queryTrueFalse($query)
-    {
+   }
+   
+   public function select($TableName,$condicional){
+    $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
+    $res = pg_select($this->connection, $TableName, $condicional);
+    if ($res) {
+        return $res;
+    }
+    else {
+        return null;
+    }
+   }
+
+   public function update($TableName,$values,$condicional){
+    $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
+    $res = pg_update($this->connection, $TableName,$values,$condicional);
+    if ($res) {
+        return true;
+    }
+    else {
+        return null;
+    }
+   }
+
+
+
+
+
+
+
+   public function exist($TableName,$condicional){
+    $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
+    $res = pg_select($this->connection, $TableName, $condicional);
+    if ($res) {
+        return true;
+    }
+    else {
+        return false;
+    }
+   }
+
+
+
+
+    public function executenonquery($sql,$parameters = null){
         $this->connection = pg_connect("{$this->connstring}") or die("Connection failed: " . pg_last_error());
-        $result = pg_query($query) or die("Query failed: " . pg_last_error());
-        $fetch = pg_fetch_row($result);
-        if ($fetch[ 0] == 't') {
-            return TRUE;
-        } else {
-            return FALSE;
+        $result = pg_prepare($this->connection, "my_query", $sql);
+
+        if($parameters != null){
+            $result = pg_execute($this->connection, "my_query", $parameters);
+        }else{
+            $result = pg_execute($this->connection, "my_query");
         }
+       return  $result;
     }
+
     private $connstring;
     private $connection;
 }
+    

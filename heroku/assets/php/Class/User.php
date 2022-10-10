@@ -1,27 +1,38 @@
 <?php
-include("../php/Class/Banco.php");
- class User {
+require_once("../Class/Banco.php");
+require_once("../Class/ClassPai.php");
+ class User extends Pai {
   // Properties
   public $nome ;
   public $email;
   public $senha;
- 
+  public $table_name = "usuarios" ;
+
   // Methods
-  public  function insert(){
+  public  function InsertUser(){
     try {
-        $banco = new Banco();
-        var_dump($banco->queryArray("select * from usuarios")) ;
+      $this->Insert($this);
     } catch (\PDOException $e) {
         echo $e->getMessage();
     }
   }
 
-  public  function find(){
-
+  public  function SelectUser($selectfields){
+    try {
+      $this->select($this,$selectfields);
+    } catch (\PDOException $e) {
+        echo $e->getMessage();
+    }
   }
 
-  public  function delete(){
 
+  public function UserExist($selectfields){
+    try {
+      return $this->exist($this,$selectfields);
+    } catch (\PDOException $e) {
+        echo $e->getMessage();
+    }
   }
+
 }
 ?>

@@ -435,7 +435,7 @@ a {
 }
 
 .search-field {
-  display: flex;
+  display: grid;
   flex-grow: 1;
   position: relative;
 }
